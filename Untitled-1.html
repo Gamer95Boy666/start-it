@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        body {
+            background-image: url(http://starkovtattoo.spb.ru/images/700/DSC100708288.png);
+            object-fit: contain;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            counter-reset: section;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        img {
+            border-radius: 20px;
+            padding: 5px;
+            width: 650px;
+        }
+
+        div {
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- swappe mellom to bilder v/ å klikkepå dem -->
+    <!-- <img src="path1" onclick="this.src='path2'" /> -->
+
+
+
+    <button onclick="cycleImagesBackwards()">prev</button>
+    <button onclick="cycleImages()">next</button>
+    <br><br>
+    <div id="imageId"></div>
+    <!-- cycle mellom flere bilder m/knappetrykk-->
+    <img id="imageDisplayer" src="" />
+
+
+    <script>
+        var image = document.getElementById("imageDisplayer");
+        //et array med bildelinker
+        var imgArray = [
+            "https://images8.alphacoders.com/545/thumb-1920-545909.jpg",
+            "https://images6.alphacoders.com/629/thumb-1920-629544.jpg",
+            "https://images2.alphacoders.com/522/thumb-1920-522622.jpg",
+            "https://images5.alphacoders.com/526/thumb-1920-526887.jpg",
+            "https://images2.alphacoders.com/596/thumb-1920-596892.jpg",
+            "https://images5.alphacoders.com/526/thumb-1920-526889.jpg",
+            "https://www.desktopbackground.org/download/o/2010/10/03/89468_tokyo-ghoul_1920x1080_h.jpg",
+            "https://wallpapersmug.com/download/1920x1080/fed51a/Ken-Kaneki-anime-dark.jpg",
+            "https://images3.alphacoders.com/785/785490.jpg",
+            "https://s2.best-wallpaper.net/wallpaper/1920x1080/1612/Tokyo-Ghoul-anime-HD_1920x1080.jpg",
+            "http://pavbca.com/walldb/original/7/a/5/4781.jpg",
+            "https://sfondo.info/i/original/b/1/d/95404.jpg",
+            "https://images3.alphacoders.com/973/973687.jpg",
+            "https://www.elsetge.cat/imagepost/b/24/244568_wallpapers-de-tokyo-ghoul.jpg"
+        ];
+
+        //for å starte på det første bildet i arrayet, lager jeg en variabel som skal telle oppover fra 0 for hvert klikk 
+        var imgIndex = 0;
+        var imgId = document.getElementById("imageId");
+
+
+
+        function cycleImages() {
+            imgId.innerHTML = "Current image Index: " + imgIndex;
+            image.setAttribute("src", imgArray[imgIndex]);  //bytt ut src i imagetaggen med en fra arrayet
+            imgIndex = (imgIndex + 1) % imgArray.length;  //pluss på 1 i "plass-telle-variabelen" for å få et nytt bilde neste gang
+            //(men ikke telle høyere enn antall bilder i arrayet)
+
+        }
+
+        function cycleImagesBackwards() {
+            imgId.innerHTML = "Current image Index:" + imgIndex;
+            image.setAttribute("src", imgArray[imgIndex]);
+            imgIndex = (imgIndex--) % imgArray.length;
+
+            if (imgIndex == 0) {
+                imgIndex = 14;
+            }
+            imgIndex--;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
