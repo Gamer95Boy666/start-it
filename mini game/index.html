@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Tetris</title>
+    <style>
+        body {
+            background-image: url(https://images.alphacoders.com/251/25111.jpg);
+            object-fit: contain;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            counter-reset: section;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        canvas {
+            border: solid .2em #00000080;
+            height: 90vh;
+        }
+
+        div {
+            color: rgb(255, 255, 255);
+            font-size: 150%;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="position: fixed; top:10px; font-family:Sans-serif; font-size:30px"> <span id="score">0</span></div>
+    <canvas id="tetris" width="240" height="400" />
+    <script src="tetris.js"></script>
+</body>
+
+</html>
